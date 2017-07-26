@@ -41,7 +41,7 @@ function udpateSprites()
 	finished = true
 	for spriteIndex=1,#sprites do
 		if sprites[spriteIndex][2] ~= sprites[spriteIndex][3] then
-			sprites[spriteIndex][2] += 1
+			sprites[spriteIndex][2] = sprites[spriteIndex][2] + 1
 			finished = false
 		end
 	
@@ -55,7 +55,7 @@ function runAnimation()
 	while not m do
 		mst,mstc,msb,msbu = advapi.createScreen(mon)
 		if (prog_frame <= #commands) then
-			addSprite(commands[prog_frame][1],commands[prog_frame][2],commands[prog_frame][3],commands[prog_frame][4],commands[prog_frame][5])
+			addSprite(commands[prog_frame][1],commands[prog_frame][2],commands[prog_frame][3],commands[prog_frame][4],commands[prog_framee][5])
 		end
 		mst,mstc,msb,msbu = renderSprites(instance,mst,mstc,msb,msbu);
 		advapi.updateScreen(instance,mst,mstc,msb,msbu)
@@ -64,3 +64,4 @@ function runAnimation()
 		sleep(0.1)
 	end
 end
+runAnimation()
